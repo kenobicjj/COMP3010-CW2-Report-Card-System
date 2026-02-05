@@ -90,8 +90,8 @@ CREATE TRIGGER after_student_insert
 AFTER INSERT ON Students
 FOR EACH ROW
 BEGIN
-    INSERT INTO Submissions (student_id, status, created_at, updated_at)
-    VALUES (NEW.student_id, 'not_submitted', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    INSERT INTO Submissions (student_id, created_at, updated_at)
+    VALUES (NEW.student_id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
     INSERT INTO ComponentGrades (submission_id, component_id, marks_obtained)
     SELECT s.submission_id, rc.component_id, 0
