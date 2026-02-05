@@ -77,10 +77,6 @@ INSERT INTO RubricComponents (component_name, weight, max_marks, display_order, 
 ('Video Presentation', 10.00, 100.00, 6, 2),
 ('Continuous Improvement (Github Commits)', 10.00, 100.00, 7, 2);
 
--- Insert default administrator with hashed password
-INSERT INTO Teachers (username, password, email, name, status) 
-VALUES ('JJChin', SHA2('abcd1234', 256), 'ji-jian.chin@plymouth.ac.uk', 'Ji Jian Chin', 'administrator');
-
 -- Modify the graded_by column in Submissions to match the data type of teacher_id in Teachers
 ALTER TABLE Submissions MODIFY COLUMN graded_by INT;
 
